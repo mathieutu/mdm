@@ -26,6 +26,7 @@
     "types": [
       "@nuxt/types",
       "@nuxtjs/axios",
+      "@nuxtjs/google-fonts",
       "@types/node"
     ]
   },
