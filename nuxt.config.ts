@@ -20,7 +20,7 @@ const config: NuxtConfig = {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/fonts.css'
+    '~/assets/css/fonts.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -33,8 +33,15 @@ const config: NuxtConfig = {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+    // https://github.com/nuxt-community/router-module
+    ['@nuxtjs/router', { fileName: 'router.ts' }],
+
+    // https://composition-api.nuxtjs.org/
+    '@nuxtjs/composition-api',
 
     // https://google-fonts.nuxtjs.org/
     // Enable to download a new font, then disable after, just to be sure there is nothing from google in bundle.
@@ -67,7 +74,13 @@ const config: NuxtConfig = {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    babel: {
+      plugins: [
+        'webpack-chunkname',
+      ],
+    },
+  },
 }
 
 export default config
